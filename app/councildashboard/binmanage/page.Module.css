@@ -1,0 +1,17 @@
+/* .item {
+    display: flex;
+  align-items: center;
+  gap: 100px;
+  } */
+
+  .back {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

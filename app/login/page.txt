@@ -1,0 +1,131 @@
+'use client';
+import React from 'react';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Form, Input, Col, Row, Typography } from 'antd';
+const { Title } = Typography;
+
+const h1Style: React.CSSProperties = {
+  textAlign: 'center',
+  // color: '#ffffff',
+  color:'#7dbcea',
+  height: 240,
+  paddingInline: 50,
+  lineHeight: '64px',
+  backgroundColor: '',
+};
+const h2Style: React.CSSProperties = {
+  textAlign: 'center',
+  // color: '#ffffff',
+  color:'#7dbcea',
+  height: 80,
+  paddingInline: 50,
+  lineHeight: '64px',
+  backgroundColor: '',
+};
+const backgrounfStyle: React.CSSProperties = {
+  textAlign: 'center',
+  color: '#ffffff',
+  height: '100%',
+  paddingInline: 50,
+  lineHeight: '64px',
+  backgroundColor: '#7dbcea',
+};
+
+const flag = true
+
+export default function Page(){
+  const onFinish = (values: any) => {
+    console.log('Received values of form: ', values);
+    //value store all the form data: username , password
+  };
+  // const onFinishFailed = (errofInfo: any) => {
+  //   console.log('failed ', errofInfo);
+  // };
+    return (
+      <div style={backgrounfStyle}>
+      
+    <Row color='white' style={{ height:'100%' }} >
+      <h1 style={h1Style}>111</h1>
+
+    </Row>
+ 
+      <Row justify={'center'} align={'bottom'} style={{ height:'100%' }}>
+      
+      <Col span={8} >
+      <Form 
+      name="normal_login"
+      className="login-form"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      // onFinishFailed={onFinishFailed}
+      // validateTrigger={['onBlur']}
+    >
+      <Form.Item
+        name="username"
+        rules={[
+          { 
+            required: true, message: 'Please input your Username!' 
+          },
+          // {
+          //   pattern: /^1[3-9]\d{9}$/,
+          //   message: 'please the correct type of username'
+          // }
+
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        validateTrigger={['onBlur']}
+        rules={[
+          { 
+            required: true, message: 'Please input your Password!' 
+          },
+          {
+            len:6,
+            message: 'the password length is 6',
+            validateTrigger:'onBlur'
+          }
+          
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        {/* <a className="login-form-forgot" href="">
+          Forgot password
+        </a> */}
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="">Reset password</a>
+      </Form.Item>
+    </Form>
+      </Col>
+      
+    </Row>
+    <Row color='white' >
+      <h1 style={h1Style}>111</h1>
+
+    </Row>
+    <Row color='white' >
+      <h2 style={h2Style}>111</h2>
+
+    </Row>
+
+  </div>
+      
+    )
+}
